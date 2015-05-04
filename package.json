@@ -1,0 +1,22 @@
+{
+  "name": "towerfall-tournament",
+  "version": "1.0.0",
+  "description": "app for the towerfall tournament",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pdx-towerfall/tournament.git"
+  },
+  "keywords": [
+    "towerfall"
+  ],
+  "author": "Paul C Pederson <paul.c.pederson@gmail.com> (http://paulcpederson.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pdx-towerfall/tournament/issues"
+  },
+  "homepage": "https://github.com/pdx-towerfall/tournament"
+}
