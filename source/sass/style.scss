@@ -12,6 +12,12 @@ body {
   i, em {font-weight: 400; font-style: italic}
 }
 
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
 .fullscreen {
   min-height: 100vh;
   display: none;
@@ -83,6 +89,9 @@ body {
     font-weight: 700;
     padding-top: 1.25rem;
     @include font-size(3);
+    &:focus {
+      color: $red;
+    }
     &:hover {
       color: $red;
       cursor: pointer;
@@ -116,6 +125,9 @@ body {
     color: $off-white;
     background-color: $blue;
     cursor: pointer;
+  }
+  &:focus {
+    background-color: $blue;
   }
 }
 
