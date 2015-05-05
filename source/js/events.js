@@ -8,6 +8,8 @@ let events = {
   'bind': 'Rebind controller event listeners',
   'player:add': 'Add player (nickname, email)',
   'player:remove': 'Remove a player (id)',
+  'bracket:create': 'Create a new bracket',
+  'bracket:update': 'Update bracket ({changedProperties})',
   'render': 'Render state to DOM ({state})'
 }
 
