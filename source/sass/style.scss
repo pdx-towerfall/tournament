@@ -103,6 +103,21 @@ body {
 }
 
 
+.create-schedule {
+  @include font-size(4);
+  font-family: 'Libre Caslon Text'; font-weight: 700; font-style: normal;
+  padding: $baseline;
+  width: 100%;
+  border: 6px solid $off-black;
+  text-align: center;
+  background-color: $teal;
+  &:hover {
+    color: $off-white;
+    background-color: $blue;
+    cursor: pointer;
+  }
+}
+
 .section-title {
   @include font-size(3);
 }
