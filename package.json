@@ -39,7 +39,7 @@
     "sass": "node-sass source/sass/ -q -o build/",
     "img": "imagemin-newer source/img/ build",
     "predev": "mkdir -p build && npm-run-all js sass img --parallel",
-    "dev": "parallelshell 'live-server' 'rerun-script'",
+    "dev": "parallelshell 'live-server --port=7777' 'rerun-script'",
     "test": "standard"
   },
   "dependencies": {

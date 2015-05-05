@@ -52,3 +52,5 @@ npm install
 ```
 npm run dev
 ```
+
+A development server is now running on [localhost:7777](localhost:7777).
