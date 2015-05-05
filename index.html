@@ -11,19 +11,23 @@
 
     <!-- Add players to the tournament -->
     <section class="fullscreen is-active" data-url="">
-      <!-- Event bindings in controllers/players.js -->
-      <header>
-        <h1>Players</h1>
-        <form action="" class="new-player">
-          <input class="new-player-nickname" placeholder="Nickname" autofocus autocomplete="off">
-          <input class="new-player-email" placeholder="Email" autocomplete="off">
-          <input type="submit" hidden>
-        </form>
-      </header>
-      <!-- Populated by templates/players.dot -->
-      <section class="players-section">
-        <ul class="players-list"></ul>
-      </section>
+      <div class="block-grid">
+        <div class="column-6 pre-3">
+          <!-- Event bindings in controllers/players.js -->
+          <header>
+            <h1>Players</h1>
+            <form action="" class="new-player">
+              <input class="new-player-nickname" placeholder="Nickname" autofocus autocomplete="off">
+              <input class="new-player-email" placeholder="Email" autocomplete="off">
+              <input type="submit" hidden>
+            </form>
+          </header>
+          <!-- Populated by templates/players.dot -->
+          <section class="players-section">
+            <ul class="players-list"></ul>
+          </section>
+        </div>
+      </div>
     </section>
 
     <!-- View Leaderboard and Schedule -->

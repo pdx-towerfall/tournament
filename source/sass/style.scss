@@ -1,3 +1,37 @@
+@import 'inline-block-grid/grid';
 @import "color";
 @import "base";
 @import "type";
+
+
+body {
+  font-family: 'Libre Caslon Text'; font-weight: 400; font-style: normal; font-size: $body-size;
+  b, strong {font-weight:700;}
+  i, em {font-weight: 400; font-style: italic}
+}
+
+h1 {
+  @include font-size(8);
+  border-bottom: 4px solid $off-black;
+  line-height: 9rem;
+}
+
+input {
+ @include font-size(6);
+ font-family: 'Libre Caslon Text'; font-weight: 400; font-style: normal;
+ box-sizing: border-box;
+ width: 100%;
+ max-width: none;
+ padding: 1*$baseline;
+ margin-bottom: 1*$baseline;
+ background-color: $green;
+ border: 4px solid $green;
+ &:focus {
+   background-color: $light-red;
+   outline: none;
+   border: 4px solid $red;
+ }
+ &::-webkit-input-placeholder {
+   padding-top: 0.33em;
+ }
+}
