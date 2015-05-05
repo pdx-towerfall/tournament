@@ -1,7 +1,9 @@
 @import 'inline-block-grid/grid';
+@import 'scss-utils/scss-utils';
 @import "color";
 @import "base";
 @import "type";
+@import "tooltip";
 
 @import "players";
 @import "leaderboard";
@@ -15,10 +17,19 @@ body {
   i, em {font-weight: 400; font-style: italic}
 }
 
+input {
+  font-family: 'Libre Caslon Text'; font-weight: 400; font-style: normal;
+}
+
 button {
   &:focus {
     outline: none;
   }
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
 }
 
 .fullscreen {
