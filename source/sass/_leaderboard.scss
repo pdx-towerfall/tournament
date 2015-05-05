@@ -1,0 +1,21 @@
+
+.leaderboard-list {
+  list-style-type: none;
+  padding: 0;
+  @include font-size(2);
+
+}
+
+  .leader-board {
+    padding-bottom: 0.25rem;
+    @include font-size(1);
+
+    .player-gravatar {
+      width: 2.5em;
+    }
+
+    .player-nickname {
+      padding-top: 0.75rem;
+    }
+  }
+
