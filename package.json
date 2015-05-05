@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "js": "browserify -e source/js/index.js -d -o build/bundle.js",
-    "sass": "node-sass source/sass/ -q -o build/",
+    "sass": "node-sass source/sass/ --include-path node_modules/ -q -o build/",
     "img": "imagemin-newer source/img/ build",
     "predev": "mkdir -p build && npm-run-all js sass img --parallel",
     "dev": "parallelshell 'live-server --port=7777' 'rerun-script'",
@@ -56,6 +56,7 @@
     "browserify": "^9.0.8",
     "dotify": "^1.1.0",
     "imagemin-newer": "^1.0.1",
+    "inline-block-grid": "git://github.com/paulcpederson/inline-block-grid.git",
     "live-server": "^0.7.1",
     "node-sass": "^3.0.0-beta.7",
     "npm-run-all": "^1.2.2",

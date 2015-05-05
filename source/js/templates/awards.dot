@@ -1,8 +1,8 @@
-<h1>Tournament Winner</h1>
+<h2>Tournament Winner</h2>
 <p><img src="{{=it.winner.gravatar}}" alt="Most Wins">{{=it.winner.nickname}}</p>
 
-<h2>Most Wins</h2>
+<h3>Most Wins</h3>
 <p><img src="{{=it.mostWins.gravatar}}" alt="Most Wins">{{=it.mostWins.nickname}}</p>
 
-<h2>Highest Skull Count</h2>
+<h3>Highest Skull Count</h3>
 <p><img src="{{=it.mostSkulls.gravatar}}" alt="Most Wins">{{=it.mostSkulls.nickname}}</p>
