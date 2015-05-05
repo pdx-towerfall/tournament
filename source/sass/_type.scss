@@ -1,0 +1,29 @@
+
+@mixin tracking($n) {
+  letter-spacing: $n * 0.001em;
+}
+
+@mixin leading($n) {
+  line-height: $n * $baseline;
+}
+
+@mixin word-spacing($n) {
+  word-spacing: $n * 0.001em;
+}
+
+@mixin text-color($value) {
+  color: $value;
+}
+
+@mixin link-color($value, $light-value) {
+  color: $value;
+  &:hover {
+    color: $light-value;
+  }
+}
+
+body {
+  font-family: 'Libre Caslon Text'; font-weight: 400; font-style: normal;
+  b, strong {font-weight:700;}
+  i, em {font-weight: 400; font-style: italic}
+}
