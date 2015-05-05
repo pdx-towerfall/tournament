@@ -2,13 +2,17 @@
 // Surface add, remove, update, and delete
 import muid from 'muid'
 import events from 'events'
-import extend from 'util-extend'
+import assign from 'object-assign'
 import gravatar from 'gravatar'
 import Store from '../lib/store.js'
 import toArray from '../lib/toArray.js'
 import toObject from '../lib/toObject.js'
 
-let store = Store('towerfall-test', {players: {}})
+let store = Store('towerfall-test', {
+  players: {},
+  bracket: false,
+  schedule: false
+})
 
 function add (player) {
   store(state => {
@@ -18,9 +22,18 @@ function add (player) {
       skulls: 0,
       wins: 0,
       played: 0,
-      gravatar: gravatar.url(player.email)
+      gravatar: gravatar.url(player.email),
+      rank: 0,
+      games: {}
     }
-    state.players[id] = extend(player, defaults)
+    state.players[id] = assign(defaults, player)
+    return state
+  })
+}
+
+function update (player) {
+  store(state => {
+    assign(state.players[player.id], player)
     return state
   })
 }
