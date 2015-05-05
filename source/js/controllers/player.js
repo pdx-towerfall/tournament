@@ -8,7 +8,7 @@ let email = $('.new-player-email')[0]
 function add (e) {
   e.preventDefault()
   events.emit('player:add', {
-    nickname: nickname.value.trim()
+    nickname: nickname.value.trim(),
     email: email.value.trim().toLowerCase()
   })
   nickname.value = ''
@@ -17,12 +17,13 @@ function add (e) {
 }
 
 function destroy (e) {
+  console.log(e)
   let id = closest(e.target, 'li').getAttribute('data-id')
   events.emit('player:remove', id)
 }
 
 let bind = () => {
-  $('.new-todo').on('submit', add)
+  $('.new-player').on('submit', add)
   $('.destroy').on('click', destroy)
 }
 
