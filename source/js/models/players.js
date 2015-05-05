@@ -3,10 +3,10 @@
 import muid from 'muid'
 import events from 'events'
 import extend from 'util-extend'
-import Store from './lib/store.js'
-import toArray from './lib/toArray.js'
-import toObject from './lib/toObject.js'
 import gravatar from 'gravatar'
+import Store from '../lib/store.js'
+import toArray from '../lib/toArray.js'
+import toObject from '../lib/toObject.js'
 
 let store = Store('towerfall-test', {players: {}})
 
