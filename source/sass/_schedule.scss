@@ -1,0 +1,17 @@
+
+.each-schedule {
+  min-height: 40vh;
+  border-top: 6px solid $off-black
+}
+
+.schedule-title {
+  @include font-size(4);
+  margin-top: 15vh;
+  display: inline-block;
+  text-align: center;
+  width: 1.125em;
+  height: 1.125em;
+  border-radius: 50%;
+  border: 6px solid $off-black
+}
+
