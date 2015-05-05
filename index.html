@@ -15,7 +15,7 @@
     </div>
  -->
     <!-- Add players to the tournament -->
-    <section class="fullscreen is-active" data-url="">
+    <section class="fullscreen" data-url="">
       <div class="block-grid">
         <div class="column-6 pre-3">
           <!-- Event bindings in controllers/players.js -->
@@ -38,7 +38,7 @@
     </section>
 
     <!-- View Leaderboard and Schedule -->
-    <section class="fullscreen" data-url="schedule">
+    <section class="fullscreen is-active" data-url="schedule">
       <div class="block-grid">
         <div class="leaderboard-wrap column-2">
           <header>
@@ -50,9 +50,6 @@
           </section>
         </div>
         <div class="schedule-wrap column-9 pre-1">
-          <header>
-            <h3 class="section-title">Schedule</h3>
-          </header>
           <!-- Event bindings in controllers/schedule.js -->
           <!-- Populated by templates/schedule.dot -->
           <section class="schedule"></section>

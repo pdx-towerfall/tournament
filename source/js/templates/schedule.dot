@@ -1,8 +1,98 @@
-<!-- oh god, how do you do this... -->
+<header>
+  <div class="column-2">
+    <h3 class="section-title">Schedule</h3>
+  </div>
+
+  <div class="column-3 level-preview">
+    <img class="level-icon" src="http://f.cl.ly/items/3Z220Q2L0x2935312P0c/frostfangkeep.png" alt="FrostFang Keep">
+  </div>
+
+  <div class="column-3 level-preview">
+    <img class="level-icon" src="http://f.cl.ly/items/3Z220Q2L0x2935312P0c/frostfangkeep.png" alt="FrostFang Keep">
+  </div>
+
+  <div class="column-3 level-preview">
+    <img class="level-icon" src="http://f.cl.ly/items/3Z220Q2L0x2935312P0c/frostfangkeep.png" alt="FrostFang Keep">
+  </div>
+</header>
+
 <section class="each-schedule schedule-a">
-  <h2 class="schedule-title">A</h2>
+  <div class="column-2">
+    <h2 class="schedule-title">A</h2>
+  </div>
+  <div class="column-3">
+    <ul class="match-lineup">
+      <li>
+        <label class="match-player tooltip" data-message="nk" aria-label="nk">
+          <input type="radio" class="match-winner">
+          <img class="player-gravatar" src="http://www.gravatar.com/avatar/4ecb6630379ba32e55a7ec2cf1d025d9" alt="nk">
+        </label>
+        <input type="number" placeholder="0" class="match-score">
+      </li>
+      <li>
+        <label class="match-player tooltip" data-message="null ghostman" aria-label="null ghostman">
+          <input type="radio" class="match-winner">
+          <img class="player-gravatar" src="http://www.gravatar.com/avatar/42bd7de30c96ec37bb4418b55f21be95" alt="null ghostman">
+        </label>
+        <input type="number" placeholder="0" class="match-score">
+      </li>
+            <li>
+        <label class="match-player tooltip" data-message="manny" aria-label="manny">
+          <input type="radio" class="match-winner">
+          <img class="player-gravatar" src="http://www.gravatar.com/avatar/a87feeb048a6d98d4e221b16a9d1fef0" alt="manny">
+        </label>
+        <input type="number" placeholder="0" class="match-score">
+      </li>
+            <li>
+        <label class="match-player tooltip" data-message="Paul" aria-label="Paul">
+          <input type="radio" class="match-winner">
+          <img class="player-gravatar" src="http://www.gravatar.com/avatar/eab78b474761b748f8874fc79bbaa97c" alt="Paul">
+        </label>
+        <input type="number" placeholder="0" class="match-score">
+      </li>
+    </ul>
+  </div>
+  <div class="column-3"></div>
+  <div class="column-3"></div>
 </section>
 
 <section class="each-schedule schedule-b">
-  <h2 class="schedule-title">B</h2>
+  <div class="column-2">
+    <h2 class="schedule-title">B</h2>
+  </div>
+  <div class="column-3">
+    <ul class="match-lineup">
+      <li>
+        <label class="match-player tooltip" data-message="nk" aria-label="nk">
+          <input type="radio" class="match-winner">
+          <img class="player-gravatar" src="http://www.gravatar.com/avatar/4ecb6630379ba32e55a7ec2cf1d025d9" alt="nk">
+        </label>
+        <input type="number" placeholder="0" class="match-score">
+      </li>
+      <li>
+        <label class="match-player tooltip" data-message="null ghostman" aria-label="null ghostman">
+          <input type="radio" class="match-winner">
+          <img class="player-gravatar" src="http://www.gravatar.com/avatar/42bd7de30c96ec37bb4418b55f21be95" alt="null ghostman">
+        </label>
+        <input type="number" placeholder="0" class="match-score">
+      </li>
+            <li>
+        <label class="match-player tooltip" data-message="manny" aria-label="manny">
+          <input type="radio" class="match-winner">
+          <img class="player-gravatar" src="http://www.gravatar.com/avatar/a87feeb048a6d98d4e221b16a9d1fef0" alt="manny">
+        </label>
+        <input type="number" placeholder="0" class="match-score">
+      </li>
+            <li>
+        <label class="match-player tooltip" data-message="Paul" aria-label="Paul">
+          <input type="radio" class="match-winner">
+          <img class="player-gravatar" src="http://www.gravatar.com/avatar/eab78b474761b748f8874fc79bbaa97c" alt="Paul">
+        </label>
+        <input type="number" placeholder="0" class="match-score">
+      </li>
+    </ul>
+
+  </div>
+  <div class="column-3"></div>
+  <div class="column-3"></div>
 </section>

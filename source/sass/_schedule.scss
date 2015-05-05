@@ -1,7 +1,15 @@
 
+.level-preview {
+  text-align: center;
+  padding-top: $baseline/2;
+  .level-icon {
+    width: 33%;
+  }
+}
+
 .each-schedule {
   min-height: 40vh;
-  border-top: 6px solid $off-black
+  border-top: 6px solid $off-black;
 }
 
 .schedule-title {
@@ -12,6 +20,38 @@
   width: 1.125em;
   height: 1.125em;
   border-radius: 50%;
-  border: 6px solid $off-black
+  border: 6px solid $off-black;
 }
 
+.match-lineup {
+  list-style-type: none;
+
+  .match-player {
+    // float: left;
+  }
+
+  .match-winner {
+    height: 6em;
+  }
+
+  .player-gravatar {
+    width: 4em;
+    margin-left: 0.33em;
+    margin-right: 0.33em;
+    // margin-bottom: $baseline/4;
+  }
+
+  .match-score {
+    float: right;
+    @include font-size(4);
+    margin-top: 0.2em;
+    width: 1.66em;
+    border: none;
+    outline: none;
+    background-color: $off-white;
+    &:focus {
+      background-color: $pink;
+      outline: nonoe;
+    }
+  }
+}
