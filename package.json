@@ -4,7 +4,12 @@
   "description": "app for the towerfall tournament",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "js": "browserify -e source/js/index.js -d -o build/bundle.js",
+    "sass": "node-sass source/sass/ -q -o build/",
+    "img": "imagemin-newer source/img/ build",
+    "predev": "mkdir -p build && npm-run-all js sass img --parallel",
+    "dev": "parallelshell 'live-server --port=7777' 'rerun-script'",
+    "test": "standard"
   },
   "repository": {
     "type": "git",
@@ -34,19 +39,13 @@
     "sass": "source/sass/**",
     "img": "source/img/**"
   },
-  "scripts": {
-    "js": "browserify -e source/js/index.js -d -o build/bundle.js",
-    "sass": "node-sass source/sass/ -q -o build/",
-    "img": "imagemin-newer source/img/ build",
-    "predev": "mkdir -p build && npm-run-all js sass img --parallel",
-    "dev": "parallelshell 'live-server --port=7777' 'rerun-script'",
-    "test": "standard"
-  },
   "dependencies": {
     "array.from": "^0.2.0",
     "diff-dom": "^1.1.0",
     "dom-closest": "^0.1.0",
+    "gravatar": "^1.1.1",
     "muid": "^1.0.2",
+    "page": "^1.6.3",
     "tiny-emitter": "^1.0.0",
     "todomvc-app-css": "^2.0.1",
     "todomvc-common": "^1.0.1",
