@@ -1,6 +1,6 @@
 {{~it :player}}
   <li data-id="{{=player.id}}" class="leader-board">
-    <img src="{{=player.gravatar}}" alt="{{=player.nickname}}">
-    {{=player.nickname}}
+    <img class="player-gravatar" src="{{=player.gravatar}}" alt="{{=player.nickname}}">
+    <h3 class="player-nickname"> {{=player.nickname}} </h3>
   </li>
 {{~}}

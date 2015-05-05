@@ -8,14 +8,19 @@
     <link rel="stylesheet" href="build/style.css">
   </head>
   <body>
-
+<!--     <div class="block-grid">
+      <div class="column-6 pre-3">
+        <h1 class="title">PDX Towerfall</h1>
+      </div>
+    </div>
+ -->
     <!-- Add players to the tournament -->
     <section class="fullscreen is-active" data-url="">
       <div class="block-grid">
         <div class="column-6 pre-3">
           <!-- Event bindings in controllers/players.js -->
           <header>
-            <h1>Players</h1>
+            <h1 class="title">PDX Towerfall</h1>
             <form action="" class="new-player">
               <input class="new-player-nickname" placeholder="Nickname" autofocus autocomplete="off">
               <input class="new-player-email" placeholder="Email" autocomplete="off">
@@ -24,7 +29,8 @@
           </header>
           <!-- Populated by templates/players.dot -->
           <section class="players-section">
-            <ul class="players-list"></ul>
+            <h2 class="subtitle">Players</h2>
+            <ul class="players-list"></ul >
           </section>
         </div>
       </div>
@@ -32,29 +38,31 @@
 
     <!-- View Leaderboard and Schedule -->
     <section class="fullscreen" data-url="schedule">
-      <div class="leaderboard-wrap">
-        <header>
-          <h1>Leaderboard</h1>
-        </header>
-        <!-- Populated by templates/leaderboard.dot -->
-        <section>
-          <ul class="leaderboard-list"></ul>
-        </section>
-      </div>
-      <div class="schedule-wrap">
-        <header>
-          <h1>Schedule</h1>
-        </header>
-        <!-- Event bindings in controllers/schedule.js -->
-        <!-- Populated by templates/schedule.dot -->
-        <section class="schedule"></section>
+      <div class="block-grid">
+        <div class="leaderboard-wrap column-2">
+          <header>
+            <h3 class="section-title">Leaderboard</h3>
+          </header>
+          <!-- Populated by templates/leaderboard.dot -->
+          <section>
+            <ul class="leaderboard-list"></ul>
+          </section>
+        </div>
+        <div class="schedule-wrap column-9 pre-1">
+          <header>
+            <h3 class="section-title">Schedule</h3>
+          </header>
+          <!-- Event bindings in controllers/schedule.js -->
+          <!-- Populated by templates/schedule.dot -->
+          <section class="schedule"></section>
+        </div>
       </div>
     </section>
 
     <!-- Manage the bracket -->
     <section class="fullscreen" data-url="bracket">
       <header>
-        <h1>Final Playoff</h1>
+        <h2 class="subtitle">Final Playoff</h1>
       </header>
       <!-- Event bindings in controllers/bracket.js -->
       <!-- Populated by templates/bracket.dot -->

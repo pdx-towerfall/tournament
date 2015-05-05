@@ -5,33 +5,145 @@
 
 
 body {
+  padding-left: $baseline;
+  padding-right: $baseline;
   font-family: 'Libre Caslon Text'; font-weight: 400; font-style: normal; font-size: $body-size;
   b, strong {font-weight:700;}
   i, em {font-weight: 400; font-style: italic}
 }
 
-h1 {
-  @include font-size(8);
-  border-bottom: 4px solid $off-black;
-  line-height: 9rem;
+.fullscreen {
+  min-height: 100vh;
+  display: none;
+  &.is-active {
+    display: block;
+  }
 }
 
-input {
- @include font-size(6);
+
+.title {
+  @include font-size(6);
+  margin-top: $baseline;
+  margin-bottom: 0;
+  text-align: center;
+  padding: $baseline;
+  border: 6px solid $off-black;
+  // border-bottom: 0;
+}
+
+.subtitle {
+  @include font-size(5);
+  line-height: 4*$baseline;
+  text-align: center;
+}
+
+.new-player-nickname, .new-player-email {
+ @include font-size(4);
  font-family: 'Libre Caslon Text'; font-weight: 400; font-style: normal;
  box-sizing: border-box;
- width: 100%;
+ width: 50%;
+ float: left;
  max-width: none;
  padding: 1*$baseline;
- margin-bottom: 1*$baseline;
- background-color: $green;
- border: 4px solid $green;
- &:focus {
-   background-color: $light-red;
-   outline: none;
-   border: 4px solid $red;
+ margin-bottom: 2*$baseline;
+ border: 6px solid $off-black;
+ border-top: none;
+ &:first-of-type {
+  border-right: 1px solid $off-black;
  }
- &::-webkit-input-placeholder {
-   padding-top: 0.33em;
+ &:last-of-type {
+  border-left: 1px solid $off-black;
+ }
+ &:focus {
+   background-color: $teal;
+   outline: none;
+   color: $off-black;
+   &::-webkit-input-placeholder {
+     color: $off-white;
+   }
  }
 }
+
+.players-list {
+  list-style-type: none;
+  padding: 0;
+  padding-top: $baseline;
+  @include font-size(3);
+  border-bottom: 6px solid $off-black;
+  border-top: 6px solid $off-black;
+}
+
+.player-list-item {
+  margin-bottom: $baseline;
+
+  .destroy {
+    float: right;
+    background-color: transparent;
+    border: none;
+    font-weight: 700;
+    padding-top: 1.25rem;
+    @include font-size(3);
+    &:hover {
+      color: $red;
+      cursor: pointer;
+    }
+  }
+}
+
+.player-gravatar {
+  margin-right: 0.33em;
+  border-radius: 50%;
+}
+
+.player-nickname {
+  padding-top: 1.25rem;
+  display: inline-block;
+  margin: 0;
+  position: absolute;
+}
+
+
+.section-title {
+  @include font-size(3);
+}
+
+.leaderboard-list {
+  list-style-type: none;
+  padding: 0;
+  @include font-size(2);
+
+}
+
+  .leader-board {
+    padding-bottom: 0.25rem;
+    @include font-size(1);
+
+    .player-gravatar {
+      width: 2.5em;
+    }
+
+    .player-nickname {
+      padding-top: 0.75rem;
+    }
+  }
+
+
+.each-schedule {
+  min-height: 40vh;
+  border-top: 6px solid $off-black
+}
+
+.schedule-title {
+  @include font-size(4);
+  margin-top: 15vh;
+  display: inline-block;
+  text-align: center;
+  width: 1.125em;
+  height: 1.125em;
+  border-radius: 50%;
+  border: 6px solid $off-black
+}
+
+
+
+
