@@ -3,7 +3,8 @@
 ## Requirements
 
 1. Interface should let you add and remove players from a pool. Players have:
-  - `email` (used for gravatar and stuff)
+  - `email`
+  - `gravatar` (url for gravatar image)
   - `id` (randomly generated id)
   - `skulls` (starts at 0)
   - `wins` (starts at 0)
