@@ -1,10 +1,10 @@
-import playersView from './templates/players.dot'
-import scheduleView from './templates/schedule.dot'
-import leaderboardView from './templates/leaderboard.dot'
-import bracketView from './templates/bracket.dot'
-import awardsView from './templates/awards.dot'
-import toArray from './lib/toArray.js'
-import render from './lib/render.js'
+import playersView from '../templates/players.dot'
+import scheduleView from '../templates/schedule.dot'
+import leaderboardView from '../templates/leaderboard.dot'
+import bracketView from '../templates/bracket.dot'
+import awardsView from '../templates/awards.dot'
+import toArray from '../lib/toArray.js'
+import render from '../lib/render.js'
 import events from 'events'
 import $ from '$'
 
@@ -36,7 +36,7 @@ function bracket (state) {
 function awards (state) {
   let players = toArray(state.players)
   let awards = {
-    winner: state.bracket.winner,
+    winner: {}, //state.bracket.winner,
     mostWins: players.reduce((a, b) => a.wins > b.wins ? a : b),
     mostSkulls: players.reduce((a, b) => a.skulls > b.skulls ? a : b)
   }
