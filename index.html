@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Towerfall Tournament</title>
+    <link rel="stylesheet" href="build/base.css">
+  </head>
+  <body>
+
+    <!-- Add players to the tournament -->
+    <section class="fullscreen" data-url="">
+      <!-- Event bindings in controllers/players.js -->
+      <header>
+        <h1>Players</h1>
+        <form action="" class="new-player">
+          <input class="new-player-nickname" placeholder="Nickname" autofocus autocomplete="off">
+          <input class="new-player-email" placeholder="Email" autocomplete="off">
+        </form>
+      </header>
+      <!-- Populated by templates/players.dot -->
+      <section class="players-section">
+        <ul class="players-list"></ul>
+      </section>
+    </section>
+
+    <!-- View Leaderboard and Schedule -->
+    <section class="fullscreen" data-url="schedule">
+      <div class="leaderboard-wrap">
+        <header>
+          <h1>Leaderboard</h1>
+        </header>
+        <!-- Populated by templates/leaderboard.dot -->
+        <section>
+          <ul class="leaderboard-list"></ul>
+        </section>
+      </div>
+      <div class="schedule-wrap">
+        <header>
+          <h1>Schedule</h1>
+        </header>
+        <!-- Event bindings in controllers/schedule.js -->
+        <!-- Populated by templates/schedule.dot -->
+        <section class="schedule"></section>
+      </div>
+    </section>
+
+    <!-- Manage the bracket -->
+    <section class="fullscreen" data-url="bracket">
+      <header>
+        <h1>Final Playoff</h1>
+      </header>
+      <!-- Event bindings in controllers/bracket.js -->
+      <!-- Populated by templates/bracket.dot -->
+      <section class="bracket"></section>
+    </section>
+
+    <!-- View Awards -->
+    <section class="fullscreen" data-url="awards">
+      <header>
+        <h1>Awards</h1>
+      </header>
+      <!-- Populated by templates/awards.dot -->
+      <section class="awards"></section>
+    </section>
+
+    <!-- Load app bundle -->
+    <script src="build/bundle.js"></script>
+  </body>
+</html>
