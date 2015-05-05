@@ -1,0 +1,7 @@
+{{~it :player}}
+  <li data-id="{{=player.id}}" class="player-list-item">
+    <img src="{{=player.gravatar}}" alt="{{=player.nickname}}">
+    {{=player.nickname}}
+    <button class="destroy"></button>
+  </li>
+{{~}}
