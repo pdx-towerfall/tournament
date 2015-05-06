@@ -17,14 +17,20 @@ function add (e) {
 }
 
 function destroy (e) {
-  console.log(e)
   let id = closest(e.target, 'li').getAttribute('data-id')
   events.emit('player:remove', id)
+}
+
+function schedule (e) {
+  e.preventDefault()
+  events.emit('route', '/schedule')
+  events.emit('schedule:create')
 }
 
 let bind = () => {
   $('.new-player').on('submit', add)
   $('.destroy').on('click', destroy)
+  $('.js-create-schedule').on('click', schedule)
 }
 
 bind()
