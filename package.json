@@ -44,6 +44,7 @@
     "diff-dom": "^1.1.0",
     "dom-closest": "^0.1.0",
     "gravatar": "^1.1.1",
+    "mess": "^0.1.2",
     "muid": "^1.0.2",
     "object-assign": "^2.0.0",
     "page": "^1.6.3",
