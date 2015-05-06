@@ -24,28 +24,28 @@
     <ul class="match-lineup">
       <li>
         <label class="match-player tooltip" data-message="nk" aria-label="nk">
-          <input type="radio" class="match-winner">
+          <input type="checkbox" class="match-winner">
           <img class="player-gravatar" src="http://www.gravatar.com/avatar/4ecb6630379ba32e55a7ec2cf1d025d9" alt="nk">
         </label>
         <input type="number" placeholder="0" class="match-score">
       </li>
       <li>
         <label class="match-player tooltip" data-message="null ghostman" aria-label="null ghostman">
-          <input type="radio" class="match-winner">
+          <input type="checkbox" class="match-winner">
           <img class="player-gravatar" src="http://www.gravatar.com/avatar/42bd7de30c96ec37bb4418b55f21be95" alt="null ghostman">
         </label>
         <input type="number" placeholder="0" class="match-score">
       </li>
             <li>
         <label class="match-player tooltip" data-message="manny" aria-label="manny">
-          <input type="radio" class="match-winner">
+          <input type="checkbox" class="match-winner">
           <img class="player-gravatar" src="http://www.gravatar.com/avatar/a87feeb048a6d98d4e221b16a9d1fef0" alt="manny">
         </label>
         <input type="number" placeholder="0" class="match-score">
       </li>
             <li>
         <label class="match-player tooltip" data-message="Paul" aria-label="Paul">
-          <input type="radio" class="match-winner">
+          <input type="checkbox" class="match-winner">
           <img class="player-gravatar" src="http://www.gravatar.com/avatar/eab78b474761b748f8874fc79bbaa97c" alt="Paul">
         </label>
         <input type="number" placeholder="0" class="match-score">
@@ -64,28 +64,28 @@
     <ul class="match-lineup">
       <li>
         <label class="match-player tooltip" data-message="nk" aria-label="nk">
-          <input type="radio" class="match-winner">
+          <input type="checkbox" class="match-winner">
           <img class="player-gravatar" src="http://www.gravatar.com/avatar/4ecb6630379ba32e55a7ec2cf1d025d9" alt="nk">
         </label>
         <input type="number" placeholder="0" class="match-score">
       </li>
       <li>
         <label class="match-player tooltip" data-message="null ghostman" aria-label="null ghostman">
-          <input type="radio" class="match-winner">
+          <input type="checkbox" class="match-winner">
           <img class="player-gravatar" src="http://www.gravatar.com/avatar/42bd7de30c96ec37bb4418b55f21be95" alt="null ghostman">
         </label>
         <input type="number" placeholder="0" class="match-score">
       </li>
             <li>
         <label class="match-player tooltip" data-message="manny" aria-label="manny">
-          <input type="radio" class="match-winner">
+          <input type="checkbox" class="match-winner">
           <img class="player-gravatar" src="http://www.gravatar.com/avatar/a87feeb048a6d98d4e221b16a9d1fef0" alt="manny">
         </label>
         <input type="number" placeholder="0" class="match-score">
       </li>
             <li>
         <label class="match-player tooltip" data-message="Paul" aria-label="Paul">
-          <input type="radio" class="match-winner">
+          <input type="checkbox" class="match-winner">
           <img class="player-gravatar" src="http://www.gravatar.com/avatar/eab78b474761b748f8874fc79bbaa97c" alt="Paul">
         </label>
         <input type="number" placeholder="0" class="match-score">
