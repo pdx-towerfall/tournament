@@ -22,11 +22,6 @@ import routesView from './views/routes.js'
 import playerController from './controllers/player.js'
 
 /**
-* Routing
-*/
-import routes from './routes.js'
-
-/**
 * Startup
 */
 import events from './events.js'
