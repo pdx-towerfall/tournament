@@ -30,7 +30,7 @@
           <!-- Populated by templates/players.dot -->
           <section class="players-section">
             <h2 class="subtitle">Players</h2>
-            <ul class="players-list"></ul >
+            <ol class="players-list"></ol >
           </section>
           <button class="create-schedule js-create-schedule">Create Schedule</button>
         </div>
@@ -39,20 +39,20 @@
 
     <!-- View Leaderboard and Schedule -->
     <section class="fullscreen" data-url="/schedule">
-        <div class="leaderboard-wrap">
-          <header>
-            <h3 class="section-title">Leaderboard</h3>
-          </header>
-          <!-- Populated by templates/leaderboard.dot -->
-          <section class="block-grid">
-            <ul class="leaderboard-list"></ul>
-          </section>
-        </div>
         <div class="schedule-wrap">
           <!-- Event bindings in controllers/schedule.js -->
           <!-- Populated by templates/schedule.dot -->
           <section class="schedule"></section>
         </div>
+
+        <section class="leaderboard-wrap">
+          <!-- <header>
+            <h3 class="section-title">Leaderboard</h3>
+          </header> -->
+          <!-- Populated by templates/leaderboard.dot -->
+          <ul class="leaderboard-list"></ul>
+        </section>
+
       </div>
     </section>
 
