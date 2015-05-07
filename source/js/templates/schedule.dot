@@ -1,27 +1,25 @@
-<header>
-  <div class="column-2">
-    <h3 class="section-title">Schedule</h3>
-  </div>
+<header class="levels column-2">
+  <h3 class="section-title">Schedule</h3>
   {{~it.A :game}}
-    <div class="column-3 level-preview">
+    <div class="schedule-round level-preview">
+      <h3 class="section-title round-number">{{=game.round}}</h3>
       <img class="level-icon" src="http://f.cl.ly/items/3Z220Q2L0x2935312P0c/frostfangkeep.png" alt="{{=game.level}}">
       <p>{{=game.level}}</p>
     </div>
   {{~}}
 </header>
 
-<section class="each-schedule schedule-a">
-  <div class="column-2">
-    <h2 class="schedule-title">A</h2>
-  </div>
+<section class="column-5">
+  <h3 class="section-title">Screen A</h3>
   {{~it.A :game}}
-    <div class="column-3">
+    <div class="schedule-round">
       <ul class="match-lineup">
         {{~game.players :player}}
           <li data-id="{{=player.id}}">
-            <label class="match-player tooltip" data-message="{{=player.nickname}}" aria-label="{{=player.nickname}}">
+            <label class="match-player">
               <input type="radio" class="match-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
               <img class="player-gravatar" src="{{=player.gravatar}}" alt="{{=player.nickname}}">
+              <span class="player-name">{{=player.nickname}}</span>
             </label>
             <input type="number" placeholder="0" class="match-score" value="{{=player.skulls}}">
           </li>
@@ -31,18 +29,17 @@
   {{~}}
 </section>
 
-<section class="each-schedule schedule-b">
-  <div class="column-2">
-    <h2 class="schedule-title">B</h2>
-  </div>
+<section class="column-5">
+  <h3 class="section-title">Screen B</h3>
   {{~it.B :game}}
-    <div class="column-3">
+    <div class="schedule-round">
       <ul class="match-lineup">
         {{~game.players :player}}
           <li data-id="{{=player.id}}">
             <label class="match-player tooltip" data-message="{{=player.nickname}}" aria-label="{{=player.nickname}}">
               <input type="radio" class="match-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
               <img class="player-gravatar" src="{{=player.gravatar}}" alt="{{=player.nickname}}">
+              <span class="player-name">{{=player.nickname}}</span>
             </label>
             <input type="number" placeholder="0" class="match-score" value="{{=player.skulls}}">
           </li>
