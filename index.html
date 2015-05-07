@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Towerfall Tournament</title>
     <link rel="stylesheet" href="//brick.a.ssl.fastly.net/libre+caslon+text:400,400i,700">
-    <link rel="stylesheet" href="build/style.css">
+    <link rel="stylesheet" href="./style.css">
   </head>
   <body>
 <!--     <div class="block-grid">
@@ -39,20 +39,19 @@
 
     <!-- View Leaderboard and Schedule -->
     <section class="fullscreen" data-url="/schedule">
-      <div class="block-grid">
-        <div class="leaderboard-wrap column-2">
+        <div class="leaderboard-wrap">
           <header>
             <h3 class="section-title">Leaderboard</h3>
           </header>
           <!-- Populated by templates/leaderboard.dot -->
-          <section>
+          <section class="block-grid">
             <ul class="leaderboard-list"></ul>
           </section>
         </div>
-        <div class="schedule-wrap column-9 pre-1">
+        <div class="schedule-wrap">
           <!-- Event bindings in controllers/schedule.js -->
           <!-- Populated by templates/schedule.dot -->
-          <section class="schedule"></section>
+          <section class="grid-container schedule"></section>
         </div>
       </div>
     </section>
@@ -77,6 +76,6 @@
     </section>
 
     <!-- Load app bundle -->
-    <script src="build/bundle.js"></script>
+    <script src="./bundle.js"></script>
   </body>
 </html>
