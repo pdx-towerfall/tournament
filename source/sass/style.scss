@@ -28,13 +28,20 @@ button {
 }
 
 img {
+  width: auto;
   max-width: 100%;
-  width: 100%;
 }
 
 .fullscreen {
-  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
   display: none;
+  box-sizing: border-box;
+  padding: 2rem;
   &.is-active {
     display: block;
   }
@@ -60,5 +67,10 @@ img {
   @include font-size(3);
 }
 
+.left {
+  float: left;
+}
 
-
+.right {
+  float: right;
+}

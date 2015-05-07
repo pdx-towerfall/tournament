@@ -20,11 +20,7 @@ import routesView from './views/routes.js'
 * Import Controllers
 */
 import playerController from './controllers/player.js'
-
-/**
-* Routing
-*/
-import routes from './routes.js'
+import scheduleController from './controllers/schedule.js'
 
 /**
 * Startup

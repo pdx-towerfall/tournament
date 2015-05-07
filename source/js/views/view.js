@@ -5,6 +5,7 @@ import bracketView from '../templates/bracket.dot'
 import awardsView from '../templates/awards.dot'
 import toArray from '../lib/toArray.js'
 import render from '../lib/render.js'
+import assign from 'object-assign'
 import events from 'events'
 import $ from '$'
 
@@ -19,13 +20,25 @@ function players (state) {
 }
 
 function schedule (state) {
-  return state.schedule
+  let games = toArray(state.games)
+  .sort((a, b) => a.round - b.round)
+  .map(g => {
+    g.players = g.players.map(p => {
+      p.winner = (g.winner === p.id)
+      return assign({}, p, state.players[p.id])
+    })
+    return g
+  })
+  return {
+    A: games.filter(g => g.screen === 'A'),
+    B: games.filter(g => g.screen === 'B')
+  }
 }
 
 function leaderboard (state) {
   let players = toArray(state.players)
   .sort((a, b) => a.skulls - b.skulls)
-  .slice(0, 10)
+  .slice(0, 16)
   return players
 }
 
@@ -35,10 +48,12 @@ function bracket (state) {
 
 function awards (state) {
   let players = toArray(state.players)
+  let mostWins = players.reduce((a, b) => a.wins > b.wins ? a : b)
+  let mostSkulls = players.reduce((a, b) => a.skulls > b.skulls ? a : b)
   let awards = {
     winner: {}, //state.bracket.winner,
-    mostWins: players.reduce((a, b) => a.wins > b.wins ? a : b),
-    mostSkulls: players.reduce((a, b) => a.skulls > b.skulls ? a : b)
+    mostWins: mostWins || {},
+    mostSkulls: mostSkulls || {}
   }
   return awards
 }

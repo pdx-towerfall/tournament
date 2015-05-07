@@ -1,7 +1,16 @@
+.schedule-wrap {
+  position: absolute;
+  left: 25vw;
+  box-sizing: border-box;
+  padding: 0em 1em 4em 1em;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
 
 .level-preview {
   text-align: center;
-  padding-top: $baseline/2;
   .level-icon {
     width: 33%;
   }
@@ -23,12 +32,26 @@
   border: 6px solid $off-black;
 }
 
+.schedule-round {
+  height: 400px;
+  overflow-y: hidden;
+}
+
+.round-number {
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.player-name {
+  font-size: 2em;
+  vertical-align: 0.7em;
+  padding-left: 0.25em;
+}
+
 .match-lineup {
   list-style-type: none;
-
-  .match-player {
-    // float: left;
-  }
+  padding-left: 0;
+  margin: 0;
 
   .match-winner {
     height: 6em;
