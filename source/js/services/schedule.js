@@ -19,10 +19,6 @@ let levels = [
   'Ascension'
 ]
 
-function playersInGame(players, game) {
-  return players.some(p1 => game.players.some(p2 => p1.id === p2.id))
-}
-
 /**
 * Create a schedule where every player plays the same amount of games
 * @param {Object}  players Pool of players to choose from
@@ -34,15 +30,27 @@ function schedule (players, options = {}) {
   let minGames = Math.ceil((options.minGames || 8) / 4) * 4
 
   let games = []
+
+  // seed matrix with a hash of player ids
   let matrix = [toArray(players).map(p => p.id)]
 
+  // until we have enough games, wrap the hash for unique player matchups:
+  // 1,2,3,4,5,6 => 2,3,4,5,6,1 => 3,4,5,6,1,2 ... n
   for (let i = 0; i < minGames; i++) {
     let newOrder = matrix[i].slice(0)
     newOrder.push(newOrder.shift())
     matrix.push(newOrder)
   }
 
+  /**
+  * in groups of 4, vertically select player ids
+  * 1,2,3,4,5
+  * 2,3,4,5,1  =>  [1,2,3,4], [2,3,4,5], [3,4,5,1], [4,5,1,2], [5,1,2,3]
+  * 3,4,5,1,2
+  * 4,5,1,2,3
+  */
   for (let x = 0; x < matrix[0].length; x++) {
+    let round = []
     let groups = matrix.length / 4 - 1
     for (let y = 0; y < groups; y++) {
       let row = y * 4
@@ -60,34 +68,25 @@ function schedule (players, options = {}) {
           return {id, skulls: 0}
         })
       }
-      games.push(game)
+      round.push(game)
     }
+    games.push(round)
   }
 
-  games = mess(games)
-
-  for (let i = 1, j = 0; i < games.length; i += 2, j += 1) {
-    let game = games[i]
-    let prev = games[i - 1]
-    let roundInfo = {
-      round: j + 1,
-      level: levels[j % levels.length]
+  // randomize order of games to minimize wait time
+  games = mess(games).map((pair, i) => {
+    let info = {
+      round: i + 1,
+      level: levels[i % levels.length]
     }
-    assign(prev, roundInfo, {screen: 'A'})
+    let game1 = assign(pair[0], info, {screen: 'A'})
+    let game2 = assign(pair[1], info, {screen: 'B'})
+    return [game1, game2]
+  })
 
-    if (playersInGame(game.players, prev)) {
-      games.push(games.splice(i, 1)[0])
-      if (i < games.length - 1) {
-        i = i - 2
-        j = j - 1
-      }
-    } else {
-      assign(game, roundInfo, {screen: 'B'})
-    }
-  }
-
-  console.log(games)
-  return toObject(games)
+  // return object of games
+  let flattened = games.reduce((a, b) => a.concat(b))
+  return toObject(flattened)
 }
 
 export default schedule
