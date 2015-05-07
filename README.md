@@ -57,39 +57,29 @@ players: {
     skulls:  0,
     wins:  0,
     played:  0,
-    rank: 0,
-    games:  {
-      'idofGame': {
-        id: 'idofGame',
-        won: false,
-        skulls: 7
-      }
-    }
+    rank: 0
   },
   ...
 }
 ```
 
-Schedule:
+Games/Schedule:
 
 ```js
-schedule: {
-  currentRound: 0,
-  games: {
-    'idOfGame': {
-      id: 'idOfGame',
-      screen: 'A',
-      completed: false,
-      winner: 'idOfPlayer',
-      players: [
-        'idOfPlayer': {
-          id: 'idOfPlayer',
-          skulls: 0
-        }
-      ]
-    },
-    ...
-  }
+games: {
+  idOfGame: {
+    id: 'idOfGame',
+    screen: 'A',
+    winner: 'idOfPlayer',
+    level: 'FrostFang'
+    players: [
+      {
+        id: 'idOfPlayer',
+        skulls: 0
+      }
+    ]
+  },
+  ...
 }
 ```
 

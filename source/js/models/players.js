@@ -23,8 +23,7 @@ function add (player) {
       wins: 0,
       played: 0,
       gravatar: gravatar.url(player.email),
-      rank: 0,
-      games: {}
+      rank: 0
     }
     state.players[id] = assign(defaults, player)
     return state

@@ -1,98 +1,50 @@
-<header>
-  <div class="column-2">
-    <h3 class="section-title">Schedule</h3>
-  </div>
-
-  <div class="column-3 level-preview">
-    <img class="level-icon" src="http://f.cl.ly/items/3Z220Q2L0x2935312P0c/frostfangkeep.png" alt="FrostFang Keep">
-  </div>
-
-  <div class="column-3 level-preview">
-    <img class="level-icon" src="http://f.cl.ly/items/3Z220Q2L0x2935312P0c/frostfangkeep.png" alt="FrostFang Keep">
-  </div>
-
-  <div class="column-3 level-preview">
-    <img class="level-icon" src="http://f.cl.ly/items/3Z220Q2L0x2935312P0c/frostfangkeep.png" alt="FrostFang Keep">
-  </div>
+<header class="levels column-2">
+  <h3 class="section-title">Schedule</h3>
+  {{~it.A :game}}
+    <div class="schedule-round level-preview">
+      <h3 class="section-title round-number">{{=game.round}}</h3>
+      <img class="level-icon" src="http://f.cl.ly/items/3Z220Q2L0x2935312P0c/frostfangkeep.png" alt="{{=game.level}}">
+      <p>{{=game.level}}</p>
+    </div>
+  {{~}}
 </header>
 
-<section class="each-schedule schedule-a">
-  <div class="column-2">
-    <h2 class="schedule-title">A</h2>
-  </div>
-  <div class="column-3">
-    <ul class="match-lineup">
-      <li>
-        <label class="match-player tooltip" data-message="nk" aria-label="nk">
-          <input type="checkbox" class="match-winner">
-          <img class="player-gravatar" src="http://www.gravatar.com/avatar/4ecb6630379ba32e55a7ec2cf1d025d9" alt="nk">
-        </label>
-        <input type="number" placeholder="0" class="match-score">
-      </li>
-      <li>
-        <label class="match-player tooltip" data-message="null ghostman" aria-label="null ghostman">
-          <input type="checkbox" class="match-winner">
-          <img class="player-gravatar" src="http://www.gravatar.com/avatar/42bd7de30c96ec37bb4418b55f21be95" alt="null ghostman">
-        </label>
-        <input type="number" placeholder="0" class="match-score">
-      </li>
-            <li>
-        <label class="match-player tooltip" data-message="manny" aria-label="manny">
-          <input type="checkbox" class="match-winner">
-          <img class="player-gravatar" src="http://www.gravatar.com/avatar/a87feeb048a6d98d4e221b16a9d1fef0" alt="manny">
-        </label>
-        <input type="number" placeholder="0" class="match-score">
-      </li>
-            <li>
-        <label class="match-player tooltip" data-message="Paul" aria-label="Paul">
-          <input type="checkbox" class="match-winner">
-          <img class="player-gravatar" src="http://www.gravatar.com/avatar/eab78b474761b748f8874fc79bbaa97c" alt="Paul">
-        </label>
-        <input type="number" placeholder="0" class="match-score">
-      </li>
-    </ul>
-  </div>
-  <div class="column-3"></div>
-  <div class="column-3"></div>
+<section class="column-5">
+  <h3 class="section-title">Screen A</h3>
+  {{~it.A :game}}
+    <div class="schedule-round js-game" data-id="{{=game.id}}">
+      <ul class="match-lineup">
+        {{~game.players :player}}
+          <li class="js-match-player" data-id="{{=player.id}}">
+            <label class="match-player">
+              <input type="radio" class="match-winner js-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
+              <img class="player-gravatar" src="{{=player.gravatar}}" alt="{{=player.nickname}}">
+              <span class="player-name">{{=player.nickname}}</span>
+            </label>
+            <input type="number" placeholder="0" class="match-score js-skull-count" value="{{=player.skulls}}">
+          </li>
+        {{~}}
+      </ul>
+    </div>
+  {{~}}
 </section>
 
-<section class="each-schedule schedule-b">
-  <div class="column-2">
-    <h2 class="schedule-title">B</h2>
-  </div>
-  <div class="column-3">
-    <ul class="match-lineup">
-      <li>
-        <label class="match-player tooltip" data-message="nk" aria-label="nk">
-          <input type="checkbox" class="match-winner">
-          <img class="player-gravatar" src="http://www.gravatar.com/avatar/4ecb6630379ba32e55a7ec2cf1d025d9" alt="nk">
-        </label>
-        <input type="number" placeholder="0" class="match-score">
-      </li>
-      <li>
-        <label class="match-player tooltip" data-message="null ghostman" aria-label="null ghostman">
-          <input type="checkbox" class="match-winner">
-          <img class="player-gravatar" src="http://www.gravatar.com/avatar/42bd7de30c96ec37bb4418b55f21be95" alt="null ghostman">
-        </label>
-        <input type="number" placeholder="0" class="match-score">
-      </li>
-            <li>
-        <label class="match-player tooltip" data-message="manny" aria-label="manny">
-          <input type="checkbox" class="match-winner">
-          <img class="player-gravatar" src="http://www.gravatar.com/avatar/a87feeb048a6d98d4e221b16a9d1fef0" alt="manny">
-        </label>
-        <input type="number" placeholder="0" class="match-score">
-      </li>
-            <li>
-        <label class="match-player tooltip" data-message="Paul" aria-label="Paul">
-          <input type="checkbox" class="match-winner">
-          <img class="player-gravatar" src="http://www.gravatar.com/avatar/eab78b474761b748f8874fc79bbaa97c" alt="Paul">
-        </label>
-        <input type="number" placeholder="0" class="match-score">
-      </li>
-    </ul>
-
-  </div>
-  <div class="column-3"></div>
-  <div class="column-3"></div>
+<section class="column-5">
+  <h3 class="section-title">Screen B</h3>
+  {{~it.B :game}}
+    <div class="schedule-round js-game" data-id="{{=game.id}}">
+      <ul class="match-lineup">
+        {{~game.players :player}}
+          <li class="js-match-player" data-id="{{=player.id}}">
+            <label class="match-player tooltip" data-message="{{=player.nickname}}" aria-label="{{=player.nickname}}">
+              <input type="radio" class="match-winner js-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
+              <img class="player-gravatar" src="{{=player.gravatar}}" alt="{{=player.nickname}}">
+              <span class="player-name">{{=player.nickname}}</span>
+            </label>
+            <input type="number" placeholder="0" class="match-score" value="{{=player.skulls}}">
+          </li>
+        {{~}}
+      </ul>
+    </div>
+  {{~}}
 </section>

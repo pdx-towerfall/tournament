@@ -7,8 +7,9 @@
     "js": "browserify -e source/js/index.js -d -o build/bundle.js",
     "sass": "node-sass source/sass/ --include-path node_modules/ -q -o build/",
     "img": "imagemin-newer source/img/ build",
-    "predev": "mkdir -p build && npm-run-all js sass img --parallel",
-    "dev": "parallelshell 'live-server --port=7777' 'rerun-script'",
+    "html": "cp index.html build/index.html",
+    "predev": "mkdir -p build && npm-run-all js sass img html --parallel",
+    "dev": "parallelshell 'cd build/ && live-server --port=7777' 'rerun-script'",
     "test": "standard"
   },
   "repository": {
@@ -37,13 +38,15 @@
   "watches": {
     "js": "source/js/**",
     "sass": "source/sass/**",
-    "img": "source/img/**"
+    "img": "source/img/**",
+    "html": "index.html"
   },
   "dependencies": {
     "array.from": "^0.2.0",
     "diff-dom": "^1.1.0",
     "dom-closest": "^0.1.0",
     "gravatar": "^1.1.1",
+    "mess": "^0.1.2",
     "muid": "^1.0.2",
     "object-assign": "^2.0.0",
     "page": "^1.6.3",
