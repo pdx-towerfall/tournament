@@ -42,7 +42,8 @@
     background-color: transparent;
     border: none;
     font-weight: 700;
-    padding-top: 1.25rem;
+    margin-right: -1rem;
+    padding: 1.25rem 0 0 0;
     @include font-size(3);
     &:focus {
       color: $red;
@@ -52,19 +53,21 @@
       cursor: pointer;
     }
   }
+  .player-nickname {
+    vertical-align: .7em;
+  }
 }
 
 .player-gravatar {
   margin-right: 0.33em;
   border-radius: 50%;
-  margin-left: -0.33em;
+  margin-left: 0;
 }
 
 .player-nickname {
   padding-top: 1.25rem;
   display: inline-block;
   margin: 0;
-  position: absolute;
 }
 
 .create-schedule {

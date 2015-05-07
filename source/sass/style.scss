@@ -67,5 +67,10 @@ img {
   @include font-size(3);
 }
 
+.left {
+  float: left;
+}
 
-
+.right {
+  float: right;
+}

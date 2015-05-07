@@ -7,15 +7,16 @@
 }
 
   .leader-board {
-    padding-bottom: 0.25rem;
+    padding-bottom: 0.75rem;
     @include font-size(1);
 
     .player-gravatar {
       width: 2.5em;
+      margin-right: .75rem;
     }
 
     .player-nickname {
-      padding-top: 0.75rem;
+      padding-top: 1.25rem;
     }
   }
 
@@ -29,4 +30,5 @@
   background: #333;
   color: #FFF;
   padding: 0 1em .5em 1em;
+  overflow-y: auto;
 }

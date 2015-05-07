@@ -11,7 +11,6 @@
 
 .level-preview {
   text-align: center;
-  padding-top: $baseline/2;
   .level-icon {
     width: 33%;
   }
@@ -35,6 +34,12 @@
 
 .schedule-round {
   height: 400px;
+  overflow-y: hidden;
+}
+
+.round-number {
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 .player-name {
@@ -46,6 +51,7 @@
 .match-lineup {
   list-style-type: none;
   padding-left: 0;
+  margin: 0;
 
   .match-winner {
     height: 6em;
