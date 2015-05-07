@@ -19,6 +19,7 @@ function create () {
 function update (game) {
   store(state => {
     assign(state.games[game.id], game)
+    console.log(state.games[game.id])
     return state
   })
 }

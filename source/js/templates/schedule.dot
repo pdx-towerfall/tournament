@@ -12,12 +12,12 @@
 <section class="column-5">
   <h3 class="section-title">Screen A</h3>
   {{~it.A :game}}
-    <div class="schedule-round">
+    <div class="schedule-round js-game" data-id="{{=game.id}}">
       <ul class="match-lineup">
         {{~game.players :player}}
-          <li data-id="{{=player.id}}">
+          <li class="js-match-player" data-id="{{=player.id}}">
             <label class="match-player">
-              <input type="radio" class="match-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
+              <input type="radio" class="match-winner js-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
               <img class="player-gravatar" src="{{=player.gravatar}}" alt="{{=player.nickname}}">
               <span class="player-name">{{=player.nickname}}</span>
             </label>
@@ -32,12 +32,12 @@
 <section class="column-5">
   <h3 class="section-title">Screen B</h3>
   {{~it.B :game}}
-    <div class="schedule-round">
+    <div class="schedule-round js-game" data-id="{{=game.id}}">
       <ul class="match-lineup">
         {{~game.players :player}}
-          <li data-id="{{=player.id}}">
+          <li class="js-match-player" data-id="{{=player.id}}">
             <label class="match-player tooltip" data-message="{{=player.nickname}}" aria-label="{{=player.nickname}}">
-              <input type="radio" class="match-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
+              <input type="radio" class="match-winner js-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
               <img class="player-gravatar" src="{{=player.gravatar}}" alt="{{=player.nickname}}">
               <span class="player-name">{{=player.nickname}}</span>
             </label>
