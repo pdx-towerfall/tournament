@@ -1,6 +1,6 @@
 
 .leaderboard-list {
-  list-style-type: none;
+  // list-style-type: none;
   padding: 0;
   @include font-size(2);
 
@@ -21,14 +21,11 @@
   }
 
 .leaderboard-wrap {
-  position: absolute;
-  left: 0;
+  position: fixed;
+  right: 1em;
   box-sizing: border-box;
-  top: 0;
+  top: 1em;
   bottom: 0;
-  width: 25vw;
-  background: #333;
-  color: #FFF;
-  padding: 0 1em .5em 1em;
+  width: 16.66667vw;
   overflow-y: auto;
 }

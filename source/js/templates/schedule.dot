@@ -1,16 +1,20 @@
+<div class="block-grid">
+  <div class="column-6 pre-3">
+    <h1 class="title">Match Schedule</h1>
+  </div>
+</div>
+
 <header class="levels column-2">
-  <h3 class="section-title">Schedule</h3>
   {{~it.A :game}}
     <div class="schedule-round level-preview">
-      <h3 class="section-title round-number">{{=game.round}}</h3>
-      <img class="level-icon" src="http://f.cl.ly/items/3Z220Q2L0x2935312P0c/frostfangkeep.png" alt="{{=game.level}}">
-      <p>{{=game.level}}</p>
+      <h3 class="round-number">{{=game.round}}</h3>
+      <h3>{{=game.level}}</h3>
     </div>
   {{~}}
 </header>
 
-<section class="column-5">
-  <h3 class="section-title">Screen A</h3>
+<section class="column-4 each-schedule">
+  <h3 class="section-title screen-a">Screen A</h3>
   {{~it.A :game}}
     <div class="schedule-round js-game" data-id="{{=game.id}}">
       <ul class="match-lineup">
@@ -29,14 +33,14 @@
   {{~}}
 </section>
 
-<section class="column-5">
-  <h3 class="section-title">Screen B</h3>
+<section class="column-4 each-schedule">
+  <h3 class="section-title screen-b">Screen B</h3>
   {{~it.B :game}}
     <div class="schedule-round js-game" data-id="{{=game.id}}">
       <ul class="match-lineup">
         {{~game.players :player}}
           <li class="js-match-player" data-id="{{=player.id}}">
-            <label class="match-player tooltip" data-message="{{=player.nickname}}" aria-label="{{=player.nickname}}">
+            <label class="match-player">
               <input type="radio" class="match-winner js-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
               <img class="player-gravatar" src="{{=player.gravatar}}" alt="{{=player.nickname}}">
               <span class="player-name">{{=player.nickname}}</span>
