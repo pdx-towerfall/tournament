@@ -21,7 +21,7 @@
               <img class="player-gravatar" src="{{=player.gravatar}}" alt="{{=player.nickname}}">
               <span class="player-name">{{=player.nickname}}</span>
             </label>
-            <input type="number" placeholder="0" class="match-score" value="{{=player.skulls}}">
+            <input type="number" placeholder="0" class="match-score js-skull-count" value="{{=player.skulls}}">
           </li>
         {{~}}
       </ul>
