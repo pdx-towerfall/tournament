@@ -16,7 +16,7 @@ let bracketNode = $('.bracket')[0]
 let awardsNode = $('.awards')[0]
 
 function players (state) {
-  return toArray(state.players)
+  return toArray(state.players).reverse()
 }
 
 function schedule (state) {
@@ -24,8 +24,13 @@ function schedule (state) {
   .sort((a, b) => a.round - b.round)
   .map(g => {
     g.players = g.players.map(p => {
-      p.winner = (g.winner === p.id)
-      return assign({}, p, state.players[p.id])
+      return {
+        id: p.id,
+        winner: (p.id === g.winner),
+        gravatar: state.players[p.id].gravatar,
+        nickname: state.players[p.id].nickname,
+        skulls: p.skulls
+      }
     })
     return g
   })
@@ -38,7 +43,7 @@ function schedule (state) {
 function leaderboard (state) {
   let players = toArray(state.players)
   .sort((a, b) => a.skulls - b.skulls)
-  .slice(0, 16)
+  .reverse()
   return players
 }
 
