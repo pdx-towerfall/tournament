@@ -55,9 +55,7 @@ players: {
     gravatar:  'url for gravatar image',
     id:  'idOfPlayer',
     skulls:  0,
-    wins:  0,
-    played:  0,
-    rank: 0
+    wins:  0
   },
   ...
 }
