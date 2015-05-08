@@ -27,61 +27,61 @@ let levels = [
 */
 function schedule (players, options = {}) {
   let screens = options.screens || ['A', 'B']
-  let minGames = Math.ceil((options.minGames || 8) / 4) * 4
+  let minGames = options.minGames || 8
+  let numberOfRounds = Math.ceil(toArray(players).length / (screens.length * 4) * minGames)
+  let rounds = []
+  let bag = toArray(players).map(p => {
+    return {
+      id: p.id,
+      games: 0
+    }
+  })
 
-  let games = []
+  for (let i = 0; i < numberOfRounds; i++) {
+    bag = mess(bag)
+    bag = mess(bag) // shuffle twice, stupid Fisher–Yates shuffle...
 
-  // seed matrix with a hash of player ids
-  let matrix = [toArray(players).map(p => p.id)]
+    let range = bag.map(p => p.games)
+    let min = Math.min.apply(Math, range)
+    let max = Math.max.apply(Math, range)
 
-  // until we have enough games, wrap the hash for unique player matchups:
-  // 1,2,3,4,5,6 => 2,3,4,5,6,1 => 3,4,5,6,1,2 ... n
-  for (let i = 0; i < minGames; i++) {
-    let newOrder = matrix[i].slice(0)
-    newOrder.push(newOrder.shift())
-    matrix.push(newOrder)
+    let eligible = bag.filter(p => p.games < minGames)
+    if (max - min > 1) {
+      eligible = eligible.sort((a,b) => a.games - b.games)
+    }
+    let round = [[],[]]
+    let roundPlayers = eligible.slice(0,8)
+    for (let j = 0; j < 8; j++) {
+      let player = roundPlayers.shift()
+      bag.forEach(p => {
+        if (p.id === player.id) {
+          p.games++
+        }
+      })
+      round[j % 2].push(player.id)
+    }
+    rounds.push(round)
   }
 
-  /**
-  * in groups of 4, vertically select player ids
-  * 1,2,3,4,5
-  * 2,3,4,5,1  =>  [1,2,3,4], [2,3,4,5], [3,4,5,1], [4,5,1,2], [5,1,2,3]
-  * 3,4,5,1,2
-  * 4,5,1,2,3
-  */
-  for (let x = 0; x < matrix[0].length; x++) {
-    let round = []
-    let groups = matrix.length / 4 - 1
-    for (let y = 0; y < groups; y++) {
-      let row = y * 4
-      let combination = [
-        matrix[row + 0][x],
-        matrix[row + 1][x],
-        matrix[row + 2][x],
-        matrix[row + 3][x]
-      ]
-      let game = {
+  let games = rounds.map((round, i) => {
+    return round.map((game, j) => {
+      let gamePlayers = []
+      for (let k = 0; k < 4; k++) {
+        gamePlayers.push({
+          id: game[k] || 'dummy',
+          skulls: 0
+        })
+      }
+      return {
+        level: levels[i % levels.length],
+        round: i + 1,
+        screen: screens[j],
         id: muid(12),
         completed: false,
         winner: false,
-        players: combination.map(id => {
-          return {id, skulls: 0}
-        })
+        players: gamePlayers
       }
-      round.push(game)
-    }
-    games.push(round)
-  }
-
-  // randomize order of games to minimize wait time
-  games = mess(games).map((pair, i) => {
-    let info = {
-      round: i + 1,
-      level: levels[i % levels.length]
-    }
-    let game1 = assign(pair[0], info, {screen: 'A'})
-    let game2 = assign(pair[1], info, {screen: 'B'})
-    return [game1, game2]
+    })
   })
 
   // return object of games
