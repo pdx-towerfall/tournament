@@ -22,8 +22,8 @@
           <li class="js-match-player" data-id="{{=player.id}}">
             <label class="match-player">
               <input type="radio" class="match-winner js-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
-              <img class="player-gravatar" src="{{=player.gravatar}}" alt="{{=player.nickname}}">
-              <span class="player-name">{{=player.nickname}}</span>
+              <img class="player-gravatar" src="{{=player.gravatar||'./dummy.png'}}" alt="{{=player.nickname}}">
+              <span class="player-name">{{=player.nickname||'Dummy'}}</span>
             </label>
             <input type="number" placeholder="0" class="match-score js-skull-count" value="{{=player.skulls}}">
           </li>
@@ -42,10 +42,10 @@
           <li class="js-match-player" data-id="{{=player.id}}">
             <label class="match-player">
               <input type="radio" class="match-winner js-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
-              <img class="player-gravatar" src="{{=player.gravatar}}" alt="{{=player.nickname}}">
-              <span class="player-name">{{=player.nickname}}</span>
+              <img class="player-gravatar" src="{{=player.gravatar||'./dummy.png'}}" alt="{{=player.nickname}}">
+              <span class="player-name">{{=player.nickname||'Dummy'}}</span>
             </label>
-            <input type="number" placeholder="0" class="match-score" value="{{=player.skulls}}">
+            <input type="number" placeholder="0" class="match-score js-skull-count" value="{{=player.skulls}}">
           </li>
         {{~}}
       </ul>
