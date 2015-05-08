@@ -8,8 +8,24 @@ function setWinner (e) {
   events.emit('schedule:update', {id, winner})
 }
 
+function setSkullCount (e) {
+  let game = closest(e.target, '.js-game').getAttribute('data-id')
+  let id = closest(e.target, '.js-match-player').getAttribute('data-id')
+  let skulls = parseInt(e.target.value)
+  events.emit('schedule:updateSkulls', game, {id, skulls})
+  e.target.focus()
+}
+
+function bracket (e) {
+  e.preventDefault()
+  events.emit('route', '/schedule')
+  events.emit('schedule:create')
+}
+
 let bind = () => {
   $('.js-winner').on('click', setWinner)
+  $('.js-skull-count').on('change', setSkullCount)
+  $('.js-create-schedule').on('click', bracket)
 }
 
 bind()
