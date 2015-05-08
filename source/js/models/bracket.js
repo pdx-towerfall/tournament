@@ -9,10 +9,32 @@ import toObject from '../lib/toObject.js'
 
 let store = Store('towerfall-test')
 
+// update wins and skulls of all players
+function calculatePlayerTotals (statePlayers, stateGames) {
+  let games = toArray(stateGames)
+  let players = toArray(statePlayers).map(p => {
+    return assign(p, {wins: 0, skulls: 0})
+  })
+  games.forEach(game => {
+    if (game.winner) {
+      statePlayers[game.winner].wins += 1
+    }
+    game.players.forEach(player => {
+      if (statePlayers[player.id]) {
+        statePlayers[player.id].skulls += player.skulls
+      }
+    })
+  })
+  return statePlayers
+}
+
 function create () {
   store(state => {
-    let players = toArray(state.players).sort((a, b) => a.rank - b.rank)
-    state.bracket = state.bracket || {
+    let players = calculatePlayerTotals(state.players)
+    players = toArray(players)
+    .sort((a, b) => b.skulls - a.skulls)
+
+    state.bracket = {
       round1: [
         {
           firstPlace: false,
