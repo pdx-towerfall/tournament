@@ -7,7 +7,6 @@ import polyfill from 'array.from'
 * Import Models
 */
 import playersModel from './models/players.js'
-import bracketModel from './models/bracket.js'
 import scheduleModel from './models/schedule.js'
 
 /**
