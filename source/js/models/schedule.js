@@ -49,7 +49,6 @@ function update (game) {
 
 
 function updateSkulls (game, data) {
-  console.log(data)
   store(state => {
     state.games[game].players.forEach((p, i) => {
       if (p.id === data.id) {
@@ -57,7 +56,6 @@ function updateSkulls (game, data) {
       }
     })
     calculatePlayerTotals(state.players, state.games)
-    console.log(state.games[game])
     return state
   })
 }

@@ -40,8 +40,7 @@ function schedule (state) {
 
 function leaderboard (state) {
   let players = toArray(state.players)
-  .sort((a, b) => a.skulls - b.skulls)
-  .reverse()
+  .sort((a, b) => b.skulls - a.skulls)
   return players
 }
 
