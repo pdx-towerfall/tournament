@@ -4,14 +4,11 @@
 
 1. Interface should let you add and remove players from a pool.
 
-2. Interface should have a round view that schedules open play. If there is no schedule data, routing to `/schedule` should populate the schedule with players until they all play the same amount of games.
+2. Interface should have a round view that schedules open play. Should populate the schedule with players until they all play the same amount of games.
 
 3. Interface should allow you to enter kills and a winner for each game. Should also show the current standings of skull count.
 
-4. Interface should allow you to create a bracket with seeds.
-Navigating to `/bracket` if there is no bracket should generate a bracket based on the standings. Should let you choose the winner from each game.
-
-5. Navigating to `/awards` should display winner, and various awards.
+4. Navigating to `/awards` should display winner, and various awards.
 
 ## Implementation
 
@@ -19,27 +16,23 @@ Navigating to `/bracket` if there is no bracket should generate a bracket based 
 
 - players
 - schedule
-- bracket
 
 ### Controllers
 
 - players
 - schedule
-- bracket
 
 ### Views
 
 - players
 - leaderboard
 - schedule
-- bracket
 - awards
 
 ### Routes:
 
 - `/` (add players)
 - `/schedule` leaderboard + schedule
-- `/bracket` final bracket
 - `/awards` results, awards
 
 ### State
@@ -77,38 +70,6 @@ games: {
       }
     ]
   },
-  ...
-}
-```
-
-```js
-bracket: {
-  round1: [
-    {
-      firstPlace: false,
-      secondPlace: false,
-      players: {
-        1: players[0],
-        2: players[7],
-        3: players[11],
-        4: players[15]
-      }
-    },
-    ...
-  ],
-  round2: [
-    {
-      firstPlace: false,
-      secondPlace: false,
-      players: {
-        1: bracket.round1[0].firstPlace,
-        2: bracket.round1[0].secondPlace,
-        3: bracket.round1[1].firstPlace,
-        4: bracket.round1[1].firstPlace
-      }
-    },
-    ...
-  ],
   ...
 }
 ```

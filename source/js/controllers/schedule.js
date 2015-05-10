@@ -16,16 +16,9 @@ function setSkullCount (e) {
   e.target.focus()
 }
 
-function bracket (e) {
-  e.preventDefault()
-  events.emit('route', '/schedule')
-  events.emit('schedule:create')
-}
-
 let bind = () => {
   $('.js-winner').on('click', setWinner)
   $('.js-skull-count').on('change', setSkullCount)
-  $('.js-create-schedule').on('click', bracket)
 }
 
 bind()
