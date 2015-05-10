@@ -11,8 +11,6 @@ let events = {
   'schedule:create': 'Create a new schedule',
   'schedule:update': 'Update schedule ({changedProperties})',
   'schedule:updateSkulls': 'Update skullcount for player in game (game, {id, skulls})',
-  'bracket:create': 'Create a new bracket',
-  'bracket:update': 'Update bracket ({changedProperties})',
   'render': 'Render state to DOM ({state})'
 }
 

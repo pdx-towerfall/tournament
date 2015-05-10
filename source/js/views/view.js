@@ -1,7 +1,6 @@
 import playersView from '../templates/players.dot'
 import scheduleView from '../templates/schedule.dot'
 import leaderboardView from '../templates/leaderboard.dot'
-import bracketView from '../templates/bracket.dot'
 import awardsView from '../templates/awards.dot'
 import toArray from '../lib/toArray.js'
 import render from '../lib/render.js'
@@ -12,7 +11,6 @@ import $ from '$'
 let playersNode = $('.players-list')[0]
 let leaderboardNode = $('.leaderboard-list')[0]
 let scheduleNode = $('.schedule')[0]
-let bracketNode = $('.bracket')[0]
 let awardsNode = $('.awards')[0]
 
 function players (state) {
@@ -47,10 +45,6 @@ function leaderboard (state) {
   return players
 }
 
-function bracket (state) {
-  return state.bracket
-}
-
 function awards (state) {
   let players = toArray(state.players)
   let mostWins = players.reduce((a, b) => a.wins > b.wins ? a : b)
@@ -67,7 +61,6 @@ events.on('render', (state) => {
   render(playersNode, playersView, players(state))
   render(scheduleNode, scheduleView, schedule(state))
   render(leaderboardNode, leaderboardView, leaderboard(state))
-  render(bracketNode, bracketView, bracket(state))
   render(awardsNode, awardsView, awards(state))
   events.emit('bind')
 })
