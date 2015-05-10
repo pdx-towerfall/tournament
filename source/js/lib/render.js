@@ -1,13 +1,10 @@
-import DiffDOM from 'diff-dom'
-
-let dd = new DiffDOM()
+import diferente from 'diferente'
 
 function render (node, view, data) {
   if (data) {
-    node.innerHTML = view(data)
-    // let tmpNode = node.cloneNode(false)
-    // tmpNode.innerHTML = view(data)
-    // dd.apply(node, dd.diff(node, tmpNode))
+    let tmpNode = node.cloneNode(false)
+    tmpNode.innerHTML = view(data)
+    diferente(node, tmpNode)
   }
 }
 
