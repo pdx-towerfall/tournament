@@ -1,6 +1,3 @@
-<h2>Tournament Winner</h2>
-<p><img src="{{=it.winner.gravatar}}" alt="Most Wins">{{=it.winner.nickname}}</p>
-
 <h3>Most Wins</h3>
 <p><img src="{{=it.mostWins.gravatar}}" alt="Most Wins">{{=it.mostWins.nickname}}</p>
 

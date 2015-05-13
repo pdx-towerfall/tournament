@@ -1,7 +1,9 @@
-{{~it :player}}
-  <li data-id="{{=player.id}}" class="player-list-item column-12">
-    <img class="player-gravatar left" src="{{=player.gravatar}}" alt="{{=player.nickname}}">
-    <h3 class="player-nickname"> {{=player.nickname}} </h3>
-    <button class="destroy">✕</button>
-  </li>
-{{~}}
+<ol class="players-list">
+  {{~it :player}}
+    <li data-id="{{=player.id}}" class="player-list-item column-12">
+      <img class="player-gravatar left" src="{{=player.gravatar}}" alt="{{=player.nickname}}">
+      <h3 class="player-nickname"> {{=player.nickname}} </h3>
+      <button class="destroy">✕</button>
+    </li>
+  {{~}}
+</ol>
