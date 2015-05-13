@@ -8,16 +8,19 @@ import assign from 'object-assign'
 import events from 'events'
 import $ from '$'
 
-let playersNode = $('.players-list')[0]
-let leaderboardNode = $('.leaderboard-list')[0]
-let scheduleNode = $('.schedule')[0]
-let awardsNode = $('.awards')[0]
+let playersNode = $('[data-view="players"]')[0]
+let leaderboardNode = $('[data-view="leaderboard"]')[0]
+let scheduleNode = $('[data-view="schedule"]')[0]
+let awardsNode = $('[data-view="awards"]')[0]
 
 function players (state) {
   return toArray(state.players).reverse()
 }
 
 function schedule (state) {
+  if (!state.games) {
+    return false
+  }
   let games = toArray(state.games)
   .sort((a, b) => a.round - b.round)
   .map(g => {
@@ -46,14 +49,19 @@ function leaderboard (state) {
 
 function awards (state) {
   let players = toArray(state.players)
-  let mostWins = players.reduce((a, b) => a.wins > b.wins ? a : b)
-  let mostSkulls = players.reduce((a, b) => a.skulls > b.skulls ? a : b)
-  let awards = {
-    winner: {}, //state.bracket.winner,
-    mostWins: mostWins || {},
-    mostSkulls: mostSkulls || {}
+
+  let mostWins = false
+  let mostSkulls = false
+
+  if (players.length) {
+    mostWins = players.reduce((a, b) => a.wins > b.wins ? a : b)
+    mostSkulls = players.reduce((a, b) => a.skulls > b.skulls ? a : b)
   }
-  return awards
+
+  return {
+    mostWins,
+    mostSkulls
+  }
 }
 
 events.on('render', (state) => {
