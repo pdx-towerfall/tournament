@@ -1,10 +1,21 @@
-import diferente from 'diferente'
+var diff = require('virtual-dom/diff')
+var patch = require('virtual-dom/patch')
+var VNode = require('virtual-dom/vnode/vnode')
+var VText = require('virtual-dom/vnode/vtext')
+
+var convertHTML = require('html-to-vdom')({
+    VNode: VNode,
+    VText: VText
+})
 
 function render (node, view, data) {
   if (data) {
-    let tmpNode = node.cloneNode(false)
+    var tmpNode = node.cloneNode(false)
     tmpNode.innerHTML = view(data)
-    diferente(node, tmpNode)
+    var tree = convertHTML(node.outerHTML)
+    var newTree = convertHTML(tmpNode.outerHTML)
+    var patches = diff(tree, newTree)
+    node = patch(node, patches)
   }
 }
 
