@@ -1,22 +1,22 @@
-var diff = require('virtual-dom/diff')
-var patch = require('virtual-dom/patch')
-var VNode = require('virtual-dom/vnode/vnode')
-var VText = require('virtual-dom/vnode/vtext')
+import virtualize from 'vdom-virtualize'
+import diff from 'virtual-dom/diff'
+import patch from 'virtual-dom/patch'
 
-var convertHTML = require('html-to-vdom')({
-    VNode: VNode,
-    VText: VText
-})
-
-function render (node, view, data) {
-  if (data) {
-    var tmpNode = node.cloneNode(false)
-    tmpNode.innerHTML = view(data)
-    var tree = convertHTML(node.outerHTML)
-    var newTree = convertHTML(tmpNode.outerHTML)
-    var patches = diff(tree, newTree)
-    node = patch(node, patches)
-  }
+/**
+* Render anything that has changed to a DOM Node
+* @param  {Element} node Root DOM Node to be rendered to
+* @param  {String}  html String representing desired html state
+* @param  {Object}  tree Current virtual DOM tree
+* @return {Object}       Updated virtual DOM tree
+*/
+function render (node, html, tree) {
+  let tmp = node.cloneNode(false)
+  tmp.innerHTML = html
+  let newTree = virtualize(tmp)
+  let patches = diff(tree, newTree)
+  patch(node, patches)
+  return newTree
 }
 
 export default render
+

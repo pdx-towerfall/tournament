@@ -50,6 +50,7 @@
     "muid": "^1.0.2",
     "object-assign": "^2.0.0",
     "tiny-emitter": "^1.0.0",
+    "vdom-virtualize": "0.0.10",
     "virtual-dom": "^2.0.1"
   },
   "devDependencies": {
