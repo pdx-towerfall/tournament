@@ -1,54 +1,56 @@
-<div class="block-grid">
-  <div class="column-6 pre-3">
-    <h1 class="title">Match Schedule</h1>
+<section class="schedule">
+  <div class="block-grid">
+    <div class="column-6 pre-3">
+      <h1 class="title">Match Schedule</h1>
+    </div>
   </div>
-</div>
 
-<header class="levels column-2">
-  {{~it.A :game}}
-    <div class="schedule-round level-preview">
-      <h3 class="round-number">{{=game.round}}</h3>
-      <h3>{{=game.level}}</h3>
-    </div>
-  {{~}}
-</header>
+  <header class="levels column-2">
+    {{~it.A :game}}
+      <div class="schedule-round level-preview">
+        <h3 class="round-number">{{=game.round}}</h3>
+        <h3>{{=game.level}}</h3>
+      </div>
+    {{~}}
+  </header>
 
-<section class="column-4 each-schedule">
-  <h3 class="section-title screen-a">Screen A</h3>
-  {{~it.A :game}}
-    <div class="schedule-round js-game" data-id="{{=game.id}}">
-      <ul class="match-lineup">
-        {{~game.players :player}}
-          <li class="js-match-player" data-id="{{=player.id}}">
-            <label class="match-player">
-              <input type="radio" class="match-winner js-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
-              <img class="player-gravatar" src="{{=player.gravatar||'./dummy.png'}}" alt="{{=player.nickname}}">
-              <span class="player-name">{{=player.nickname||'Dummy'}}</span>
-            </label>
-            <input type="number" placeholder="0" class="match-score js-skull-count" value="{{=player.skulls}}">
-          </li>
-        {{~}}
-      </ul>
-    </div>
-  {{~}}
-</section>
+  <section class="column-4 each-schedule">
+    <h3 class="section-title screen-a">Screen A</h3>
+    {{~it.A :game}}
+      <div class="schedule-round js-game" data-id="{{=game.id}}">
+        <ul class="match-lineup">
+          {{~game.players :player}}
+            <li class="js-match-player" data-id="{{=player.id}}">
+              <label class="match-player">
+                <input type="radio" class="match-winner js-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
+                <img class="player-gravatar" src="{{=player.gravatar||'./dummy.png'}}" alt="{{=player.nickname}}">
+                <span class="player-name">{{=player.nickname||'Dummy'}}</span>
+              </label>
+              <input type="number" placeholder="0" class="match-score js-skull-count" value="{{=player.skulls}}">
+            </li>
+          {{~}}
+        </ul>
+      </div>
+    {{~}}
+  </section>
 
-<section class="column-4 each-schedule">
-  <h3 class="section-title screen-b">Screen B</h3>
-  {{~it.B :game}}
-    <div class="schedule-round js-game" data-id="{{=game.id}}">
-      <ul class="match-lineup">
-        {{~game.players :player}}
-          <li class="js-match-player" data-id="{{=player.id}}">
-            <label class="match-player">
-              <input type="radio" class="match-winner js-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
-              <img class="player-gravatar" src="{{=player.gravatar||'./dummy.png'}}" alt="{{=player.nickname}}">
-              <span class="player-name">{{=player.nickname||'Dummy'}}</span>
-            </label>
-            <input type="number" placeholder="0" class="match-score js-skull-count" value="{{=player.skulls}}">
-          </li>
-        {{~}}
-      </ul>
-    </div>
-  {{~}}
+  <section class="column-4 each-schedule">
+    <h3 class="section-title screen-b">Screen B</h3>
+    {{~it.B :game}}
+      <div class="schedule-round js-game" data-id="{{=game.id}}">
+        <ul class="match-lineup">
+          {{~game.players :player}}
+            <li class="js-match-player" data-id="{{=player.id}}">
+              <label class="match-player">
+                <input type="radio" class="match-winner js-winner" name="{{=game.id}}" {{?player.winner}}checked{{?}}>
+                <img class="player-gravatar" src="{{=player.gravatar||'./dummy.png'}}" alt="{{=player.nickname}}">
+                <span class="player-name">{{=player.nickname||'Dummy'}}</span>
+              </label>
+              <input type="number" placeholder="0" class="match-score js-skull-count" value="{{=player.skulls}}">
+            </li>
+          {{~}}
+        </ul>
+      </div>
+    {{~}}
+  </section>
 </section>

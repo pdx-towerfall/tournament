@@ -26,7 +26,12 @@ function Query () {
   * @param {String} event Name of event, eg. "click", "mouseover", etc...
   * @param {Function} callback The function to call when the event is triggered
   */
-  this.on = (event, fn) => this.each(e => e.addEventListener(event, fn, false))
+  this.on = (event, fn) => {
+    this.each(e => {
+      e.removeEventListener(event, fn)
+      e.addEventListener(event, fn, false)
+    })
+  }
 }
 
 Query.prototype = Array.prototype

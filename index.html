@@ -30,7 +30,7 @@
           <!-- Populated by templates/players.dot -->
           <section class="players-section">
             <h2 class="subtitle">Players</h2>
-            <ol class="players-list"></ol >
+            <div data-view="players"></div>
           </section>
           <button class="create-schedule js-create-schedule">Create Schedule</button>
         </div>
@@ -42,7 +42,7 @@
         <div class="schedule-wrap">
           <!-- Event bindings in controllers/schedule.js -->
           <!-- Populated by templates/schedule.dot -->
-          <section class="schedule"></section>
+          <div data-view="schedule"></div>
         </div>
 
         <section class="leaderboard-wrap">
@@ -50,7 +50,7 @@
             <h3 class="section-title">Leaderboard</h3>
           </header> -->
           <!-- Populated by templates/leaderboard.dot -->
-          <ul class="leaderboard-list"></ul>
+          <div data-view="leaderboard"></div>
         </section>
 
       </div>
@@ -62,7 +62,7 @@
         <h1>Awards</h1>
       </header>
       <!-- Populated by templates/awards.dot -->
-      <section class="awards"></section>
+      <section class="awards" data-view="awards"></section>
     </section>
 
     <!-- Load app bundle -->

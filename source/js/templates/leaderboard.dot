@@ -1,5 +1,7 @@
-{{~it :player}}
-  <li data-id="{{=player.id}}" class="leader-board column-12">
-    <h3 class="player-nickname">{{=player.nickname}}</h3><h3 class="player-nickname right">{{=player.skulls}}</h3>
-  </li>
-{{~}}
+<ul class="leaderboard-list">
+  {{~it :player}}
+    <li data-id="{{=player.id}}" class="leader-board column-12">
+      <h3 class="player-nickname">{{=player.nickname}}</h3><h3 class="player-nickname right">{{=player.skulls}}</h3>
+    </li>
+  {{~}}
+</ul>

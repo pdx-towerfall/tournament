@@ -1,3 +1,4 @@
+import virtualize from 'vdom-virtualize'
 import playersView from '../templates/players.dot'
 import scheduleView from '../templates/schedule.dot'
 import leaderboardView from '../templates/leaderboard.dot'
@@ -8,16 +9,24 @@ import assign from 'object-assign'
 import events from 'events'
 import $ from '$'
 
-let playersNode = $('.players-list')[0]
-let leaderboardNode = $('.leaderboard-list')[0]
-let scheduleNode = $('.schedule')[0]
-let awardsNode = $('.awards')[0]
+let playersNode = virtualize($('[data-view="players"]')[0])
+let leaderboardNode = virtualize($('[data-view="leaderboard"]')[0])
+let scheduleNode = virtualize($('[data-view="schedule"]')[0])
+let awardsNode = virtualize($('[data-view="awards"]')[0])
+
+let playersTree = virtualize(playersNode)
+let leaderboardTree = virtualize(leaderboardNode)
+let scheduleTree = virtualize(scheduleNode)
+let awardsTree = virtualize(awardsNode)
 
 function players (state) {
   return toArray(state.players).reverse()
 }
 
 function schedule (state) {
+  if (!state.games) {
+    return false
+  }
   let games = toArray(state.games)
   .sort((a, b) => a.round - b.round)
   .map(g => {
@@ -46,20 +55,27 @@ function leaderboard (state) {
 
 function awards (state) {
   let players = toArray(state.players)
-  let mostWins = players.reduce((a, b) => a.wins > b.wins ? a : b)
-  let mostSkulls = players.reduce((a, b) => a.skulls > b.skulls ? a : b)
-  let awards = {
-    winner: {}, //state.bracket.winner,
-    mostWins: mostWins || {},
-    mostSkulls: mostSkulls || {}
+
+  let mostWins = false
+  let mostSkulls = false
+
+  if (players.length) {
+    mostWins = players.reduce((a, b) => a.wins > b.wins ? a : b)
+    mostSkulls = players.reduce((a, b) => a.skulls > b.skulls ? a : b)
   }
-  return awards
+
+  return {
+    mostWins,
+    mostSkulls
+  }
 }
 
+let playersTree = virtualize(el)
+
 events.on('render', (state) => {
-  render(playersNode, playersView, players(state))
-  render(scheduleNode, scheduleView, schedule(state))
-  render(leaderboardNode, leaderboardView, leaderboard(state))
-  render(awardsNode, awardsView, awards(state))
+  playersTree = render(playersNode, playersView(players(state)), playersTree)
+  scheduleTree = render(scheduleNode, scheduleView(schedule(state)), scheduleTree)
+  leaderboardTree = render(leaderboardNode, leaderboardView(leaderboard(state)), leaderboardTree)
+  awardsTree = render(awardsNode, awardsView(awards(state)), awardsTree)
   events.emit('bind')
 })
